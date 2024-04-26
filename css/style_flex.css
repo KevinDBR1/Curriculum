@@ -4,6 +4,7 @@
 }
 body{
     padding: 10px;
+    background-color: aquamarine;
 }
 .container{
     width: 95%;
@@ -37,4 +38,20 @@ body{
 }
 #three{
     background-color: navajowhite;
+}
+@media screen and (max-width:1200px){
+    body{
+        background-color: crimson;
+    }
+    .element{
+        border: 5px solid greenyellow;
+    }
+}
+@media screen and (max-width:800px){
+    body{
+        background-color: blue;
+    }
+    .elemant{
+        border: 5px solid rgb(255, 38, 85);
+    }
 }
