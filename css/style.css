@@ -42,6 +42,7 @@ nav{
     font-weight: 300;
     margin: auto;
     transition: all ease-in-out;
+    transition: all ease-in-out .5s;
 }
 .nav .enlaces-header a{
  color: #5D6678;
@@ -49,6 +50,7 @@ nav{
  margin-left: 20px;
  padding: 12px;
  border-radius: 10px;
+ transition: color .5s ease-in;
 }
 .hamburguer{
     width: 80px;
