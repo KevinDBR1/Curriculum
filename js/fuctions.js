@@ -118,9 +118,20 @@ function agregar(){
  let array_add = array_numerico.push(num);
   console.log(array_numerico);
   document.getElementById("impresion").value = array_numerico;
-  
+}
+function reves(){
+  document.getElementById("impresion").value = array_numerico.reverse();
+}
+function borrarprim(){
+  let array_firstdelete = array_numerico.shift();
+  document.getElementById("impresion").value = array_numerico;
 }
 
+function agregarprim(){
+  let num = document.getElementById("num").value;
+  let array_firstadd = array_numerico.unshift(num);
+  document.getElementById("impresion").value = array_numerico;
+}
 
 
 
