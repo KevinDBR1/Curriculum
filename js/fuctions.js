@@ -32,6 +32,9 @@
         showConfirmButton: false,
         timer : 2000
       });
+
+      document.getElementById("text").innerText = "el array a calcular es :" + array_num;
+      document.getElementById("impresion").value = array_num;
   }
   //operadores de comparacion
     //= asignacion
@@ -63,3 +66,61 @@ function send_form(){
 document.getElementById("print").innerText = name+" "+last_name;
     }
 }
+//arrays
+var array_semana = ["lunes","martes","miercoles","jueves","viernes","sabado","domingo"];
+var array_gral = [1,2,2.5,"abc","soy kevin"];
+var array_num = [1,2,3,4,5,6,7,8,9];
+
+var array_multi= [
+   {name:"kevin",age:32,color:"verde"},
+   {name:"anyi",age:33,color:"rosa"},
+   {name:"celeste",age:3,color:"rosa"},
+   {name:"antonella",age:2,color:"blanco"},
+];
+
+console.log(array_semana);
+console.log(array_gral);
+console.log(array_num);
+console.log(array_multi);
+
+function action(){
+  //alert(array_num);
+  Swal.fire(""+array_num);
+  console.log(array_num);
+  console.log(array_num.length);
+  var result = 0;
+  for(let i=0;i<array_num.length;i++){
+    result = result+array_num[i];
+  }
+  document.getElementById("result").innerHTML = "<strong>el resultado es : "+ result+"<strong>";
+  document.getElementById("result").style.color = "blue";
+  var total = 0;
+for(var j = 0;j<array_multi.length;j++){
+  console.log(array_multi[j].age);
+  total = array_multi[j].age + total;
+}
+//alert(total);
+  var w = 0;
+  while(w<array_multi.length){
+  total_dos = array_multi[w].age + total_dos;
+  w++;
+  }
+  alert(total_2);
+}
+var array_numerico = [1,2,3,4,5,6,7,8,9];
+function eliminar(){
+  let array_deleted = array_numerico.pop();
+  console.log(array_numerico);
+  document.getElementById("impresion").value = array_numerico;
+}
+function agregar(){
+  let num = document.getElementById("num").value;
+ let array_add = array_numerico.push(num);
+  console.log(array_numerico);
+  document.getElementById("impresion").value = array_numerico;
+  
+}
+
+
+
+
