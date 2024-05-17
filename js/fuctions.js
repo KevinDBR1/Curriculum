@@ -35,35 +35,73 @@
 
       document.getElementById("text").innerText = "el array a calcular es :" + array_num;
       document.getElementById("impresion").value = array_num;
+      document.getElementById("name_search").value = nombre_form;
+
+      //let hour_system = "fecha del sistema";
+      let hour_system = new Date();
+
+      var mes = hour_system.getMonth();
+      var array_meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+      var dia = hour_system.getDay();
+      var dias = ["lunes","martes","miercoles","jueves","viernes","sabado","domingo"];
+
+      console.log("Hoy es " + dias[dia - 1] );
+      console.log("Estamos en "+ array_meses[mes]);
+
+      console.log(hour_system.getDate());
+      console.log(hour_system.getDay());
+      console.log(hour_system.getFullYear());
+      console.log(hour_system.getHours());
+      console.log(hour_system.getMilliseconds());
+      console.log(hour_system.getMinutes());
+      console.log(hour_system.getMonth());
+      console.log(hour_system.getSeconds());
+      console.log(hour_system.getTime());
+
+      console.log("fecha "+hour_system.getDate()+"/"+mes+"/"+hour_system.getFullYear());
+      
+
+      document.getElementById("hour_system").value = hour_system;
   }
   //operadores de comparacion
-    //= asignacion
-    //== comparacion
-    //=== estrictamente comparado
-    // > , >= , < , <=
+  //= asignacion
+  //== comparacion
+  //=== estrictamente comparado
+  // > , >= , < , <=
 function send_form(){
-    let name = document.getElementById("name").value;
-    let lastn_ame = document.getElementById("last_name").value;
-    if(name.length == 0 && last_name ==0){
+    let name   = document.getElementById("name").value;
+    let last_name = document.getElementById("last_name").value;
+    let pass_one = document.getElementById("pass_one").value;
+    let pass_two = document.getElementById("pass_two").value;
+    if(name.length == 0 || last_name == 0 || pass_one.length == 0 || pass_two.length == 0){
         Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
-            footer: '<a href="#">Why do I have this issue?</a>'
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>'
           });
-          if(name.length ==0){
-            document.getElementById("name").style.border = "2px solid red"
-          }else{
-            document.getElementById("name").style.border = "2px solid green"
-          }
-          if(Last_name.length ==0){
-            document.getElementById("name").style.border = "2px solid red"
-          }else{
-            document.getElementById("name").style.border = "2px solid green"
-          }
+          //if(name.length ==0){
+          //  document.getElementById("name").style.border = "2px solid red"
+          //}else{
+          //  document.getElementById("name").style.border = "2px solid green"
+          //}
+          //if(Last_name.length ==0){
+          //  document.getElementById("name").style.border = "2px solid red"
+          //}else{
+          //  document.getElementById("name").style.border = "2px solid green"
+          //}
           
-    }else{
-document.getElementById("print").innerText = name+" "+last_name;
+    }
+    else if(pass_one != pass_two){
+      Swal.fire({
+        title:"sus contraseñas no son iguales",
+        text:"porfavor valide sus credenciales",
+        icon:"error"
+      });
+    }
+    else{
+      document.getElementById("print").innerText = name+" "+last_name;
+      console.log(isNan(name));
     }
 }
 //arrays
@@ -115,9 +153,14 @@ function eliminar(){
 }
 function agregar(){
   let num = document.getElementById("num").value;
- let array_add = array_numerico.push(num);
-  console.log(array_numerico);
-  document.getElementById("impresion").value = array_numerico;
+
+  if(isNan(num) == true){
+    Swal.fire("solo se aceptan numeros");
+  }else{
+    let array_add = array_numerico.push(num);
+    console.log(array_numerico);
+    document.getElementById("impresion").value = array_numerico;
+  }
 }
 function reves(){
   document.getElementById("impresion").value = array_numerico.reverse();
@@ -133,5 +176,20 @@ function agregarprim(){
   document.getElementById("impresion").value = array_numerico;
 }
 
+var nombre_form = "KEVIN DUVAN BERMUDEZ";
+function search(){
+  let nombre_buscar = document.getElementById("name_search").value;
+  alert(nombre_buscar);
+//  Swal.fire({
+//    title: nombre_buscar.toLowerCase(),
+//    text: "hay un espacio vacio",
+//    icon: "error"
+//  });
+//Swal.fire(nombre_buscar.charAt(0));
+let word = nombre_buscar.split(" ");
+Swal.fire(word+"");
+let word_com =word.join(" ");
+console.log(word_com);
+}
 
 
