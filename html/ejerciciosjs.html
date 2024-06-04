@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            height: 600px;
+            width: 400px;
+            border-radius: 20px;
+            border: 2px solid gray;
+            box-shadow: 0 0 10px gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body onload="load_page()">
+    <div class="container">
+        <div class="row">
+            <input type="text" id="caja_1">
+            <input type="text" id="caja_2">
+            <input type="text" id="caja_3">
+            <input type="text" id="caja_4">
+        </div>
+        <h3>ZONA DE IMPRESION</h3>
+        <div id="tabla"></div>
+        <div id="print_name"></div>
+        <label id="cant"></label>
+        <div id="print"></div>
+        <button onclick="enviar()">Enviar</button>
+        <button id="btn_limpiar" onclick="limpiar()">limpiar</button>
+    </div>
+    <script>
+        function load_page(){
+            document.getElementById("btn_limpiar").hidden = true;
+        }
+        function enviar(){
+            let caja_1  = document.getElementById("caja_1").value.trim();
+            let caja_2  = document.getElementById("caja_2").value.trim();
+            let caja_3  = document.getElementById("caja_3").value.trim();
+            let caja_4  = document.getElementById("caja_4").value.trim();
+            let concat = caja_1 + caja_2 + caja_3 + caja_4;
+            //multiplicar la cantidad de numeros del nombre hasta el 20
+            //let cadena="";
+            //for(h=1;h<= concat.length;h++){
+            //    cadena += concat.length +" x "+ h + "=" + (concat.length*h)+"\n";
+            //}
+            //mostrar las letras del nombre en vertical y al lado el numero de posicion de la letra    
+            let columna = "";
+            for(let h=0;h<= concat.length;h++){
+
+                let letter = concat.charAt(h);
+                columna += (h+1) + " " + letter + "\n";
+            }
+
+            document.getElementById("print_name").innerText = caja_1.toUpperCase() + " " + caja_2.toUpperCase();
+            document.getElementById("tabla").innerText = columna;
+            document.getElementById("btn_limpiar").hidden = false;
+            document.getElementById("cant").innerText = "Tiene " +concat.length + " caracteres";
+
+            //for(let i = caja_1;i<= caja_2;i++){
+            //    if(i%2 == 0){
+            //        cadena += i + " es par"
+            //    }
+            //}
+            
+        }
+    </script>
+</body>
+</html>
